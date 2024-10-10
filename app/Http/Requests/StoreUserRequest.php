@@ -27,4 +27,15 @@ class StoreUserRequest extends FormRequest
             'kelas_id' => 'required|exists:kelas,id',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'nama.required' => 'The name field is required.',
+            'npm.required' => 'The NPM field is required.',
+            'npm.unique' => 'This NPM is already registered. Please use another NPM.',
+            'kelas_id.required' => 'The class field is required.',
+            'kelas_id.exists' => 'The selected class is invalid.',
+        ];
+    }
 }
