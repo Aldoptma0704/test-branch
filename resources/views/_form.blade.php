@@ -16,19 +16,18 @@
     </div>
 
     <div class="mb-3">
-        <div>
-            <label for="kelas" class="form-label">Kelas</label>
-            <select name="kelas_id" id="kelas_id" class="form-select" required>
-                @foreach($kelas as $kelasItem)
-                    <option value="{{$kelasItem->id}}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>
-                    {{$kelasItem->nama_kelas}}
-                    </option>
-                @endforeach
-            </select>
-            @foreach($errors->get('kelas_id') as $message)
-                <p class="text-danger">{{ $message }}</p>
+        <label for="kelas" class="form-label">Kelas</label>
+        <select name="kelas_id" id="kelas_id" class="form-select" required>
+            <option value="" disabled selected>-- Pilih Kelas --</option>
+            @foreach($kelas as $kelasItem)
+                <option value="{{ $kelasItem->id }}" {{ old('kelas_id') == $kelasItem->id ? 'selected' : '' }}>
+                    {{ $kelasItem->nama_kelas }}
+                </option>
             @endforeach
-        </div>
+        </select>
+        @foreach($errors->get('kelas_id') as $message)
+            <p class="text-danger">{{ $message }}</p>
+        @endforeach
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

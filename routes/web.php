@@ -28,3 +28,9 @@ Route::get('/user/create', [UserController::class,
 'create']);
 Route::post('/user/store', [UserController::class, 
 'store'])->name('user.store'); 
+
+Route::get('/user', [UserController::class, 
+'index'])->name('index'); 
+
+
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create'); //tombol back ke user.creat
